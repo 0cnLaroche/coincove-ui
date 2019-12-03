@@ -1,0 +1,6 @@
+enum OrderStatus {
+  COMPLETED,
+  PENDING,
+  TRANSMITTED_TO_VENDOR,
+  SHIPPED
+}
