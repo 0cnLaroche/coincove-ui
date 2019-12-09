@@ -1,1 +1,14 @@
+<mat-card>
+  <h1>Submit your payment</h1>
+  Order Total: {{order.total}} <br>
+  Send payment to : {{payment.address}} <br>
+  BTC : {{btcValue}} <br>
+  Rate: {{rate}} <br>
+  Confirmations required : {{estimatedConfidence$.minDepth}} <br>
+  Estimated confirmation time : {{estimatedConfidence$.estimatedDuration}} <br>
+  Confirmations received : {{confirmations$ | async }} <br>
+  <button mat-raised-button color="primary" (click)="submitPayment()">Submit</button>
+</mat-card>
+
+
 

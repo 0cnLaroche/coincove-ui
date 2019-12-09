@@ -1,5 +1,6 @@
 
-class Payment {
+
+export class Payment {
   address: string;
   confirmationsRequired: number;
   currency: string;
@@ -12,4 +13,7 @@ class Payment {
   submittedTime: Date;
   transactionId: string;
   value: number;
+
 }
+
+enum PaymentStatus { CANCELLED, ERROR, PENDING, PROCESSING, RECEIVED, REFUSED, VERIFIED, WRONG_AMOUNT }
