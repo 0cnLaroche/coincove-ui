@@ -3,16 +3,21 @@
 export class Payment {
   address: string;
   confirmationsRequired: number;
+  confirmationsReceived: number;
   currency: string;
   id: string;
   orderId: string;
   processedTime: Date;
   satoshis: number;
-  status: PaymentStatus;
+  status: string;
   statusTime: Date;
   submittedTime: Date;
   transactionId: string;
   value: number;
+
+  constructor() {
+    this.confirmationsReceived = 0;
+  }
 
 }
 

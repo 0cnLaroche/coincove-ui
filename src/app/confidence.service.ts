@@ -12,7 +12,7 @@ export class ConfidenceService {
   constructor(private httpClient: HttpClient) { }
 
   getEstimatedConfidence(value: number): Observable<any> {
-    return this.httpClient.get(environment.urlApi + '/confidence?value=${value}')
+    return this.httpClient.get(environment.urlApi + `/confidence?value=${value}`)
       .pipe();
   }
 }

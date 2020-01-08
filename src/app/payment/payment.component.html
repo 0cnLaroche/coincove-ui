@@ -1,14 +1,23 @@
-<mat-card>
+<div class="payment-body">
   <h1>Submit your payment</h1>
-  Order Total: {{order.total}} <br>
-  Send payment to : {{payment.address}} <br>
-  BTC : {{btcValue}} <br>
-  Rate: {{rate}} <br>
-  Confirmations required : {{estimatedConfidence$.minDepth}} <br>
-  Estimated confirmation time : {{estimatedConfidence$.estimatedDuration}} <br>
-  Confirmations received : {{confirmations$ | async }} <br>
-  <button mat-raised-button color="primary" (click)="submitPayment()">Submit</button>
-</mat-card>
-
-
-
+  <mat-card>
+    Order Total: {{order.total}} <br>
+    Send payment to : {{payment.address}} 
+    <button *ngIf="!payment.address" mat-raised-button color="primary" (click)="getFreshSendAddress()">Send To</button><br>
+    BTC : {{btcValue}} <br>
+    Rate: {{rate}} <br>
+    Confirmations required : {{estimatedConfidence$.minDepth}} <br>
+    Estimated confirmation time : {{estimatedConfidence$.estimatedDuration}} <br>
+    <button mat-raised-button color="primary" (click)="submitPayment()">Submit</button>
+  </mat-card>
+  <mat-card *ngIf="payment.id">
+    Payment ID : {{payment.id}} <br>
+    Confirmations received : {{payment.confirmationsReceived}} <br>
+    Payment Status : {{payment.status}} <br>
+    <mat-progress-bar *ngIf="payment.confirmationsReceived < payment.confirmationsRequired" mode="indeterminate"></mat-progress-bar>
+  </mat-card>
+  <div>
+    {{greeting.content}}
+    <button mat-raised-button color="primary" (click)="send()">Submit</button>
+  </div>
+</div>

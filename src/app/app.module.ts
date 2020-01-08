@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,10 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { PaymentComponent } from './payment/payment.component';
 import {PaymentService} from './payment.service';
 import {BitcoinService} from './bitcoin.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import {AuthService} from './auth/auth.service';
+import { TokenInterceptor } from './auth/tokenInterceptor';
 
 @NgModule({
   declarations: [
@@ -28,11 +33,13 @@ import {BitcoinService} from './bitcoin.service';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressBarModule
   ],
   providers: [
     PaymentService,
-    BitcoinService
+    BitcoinService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
